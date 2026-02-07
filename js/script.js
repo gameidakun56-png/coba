@@ -234,7 +234,8 @@ function renderGifts(gift){
       <h4>${safeText(acc.bank || "Rekening")}</h4>
       <p><strong>${safeText(acc.name || "")}</strong></p>
       <p class="muted"><span class="mono">${safeText(acc.number || "")}</span></p>
-      <button style="margin:10px 0 0" class="btn btn--primary btn--sm" type="button">Salin Nomor</button>
+      <button class="btn btn--primary btn--sm" type="button">Salin Nomor</button>
+      <p class="muted small" style="margin:10px 0 0">Terima kasih 🙏</p>
     `;
     const btn = card.querySelector("button");
     btn.addEventListener("click", async ()=>{
@@ -516,6 +517,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
