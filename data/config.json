@@ -83,7 +83,9 @@
       },
       {
         "bank": "Kirim Kado"
+        "name": ""
         "number": "jl.gafaaa"
+      }
     ],
     "addressGift": "Jl. ... No. ..., Guntur"
   },
@@ -95,4 +97,5 @@
   }
 
 }
+
 
