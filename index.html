@@ -131,44 +131,33 @@
         <h3 class="section__title reveal">Detail Acara</h3>
 
         <div class="grid2">
+          <!-- Kartu Akad -->
           <div class="card reveal">
-            <h4>Akad Nikah & Resepsi</h4>
+            <h4>Akad Nikah</h4>
             <p class="muted" id="akadTime">09.00 - 10.00 WIB</p>
-            <p id="akadPlace"><strong>Masjid ...</strong></p>
-            <p class="muted" id="akadAddress">Jl. ... No. ..., Guntur</p>
+            <p id="akadPlace"><strong>Masjid Al-Ikhlas</strong></p>
+            <p class="muted" id="akadAddress">Jl. Mawar No. 123, Guntur</p>
+            <!-- Tombol pemicu -->
+            <button class="btn btn--sm btn--outline" onclick="changeMap('akad')">Lihat Lokasi Akad</button>
           </div>
-        </div>
 
-        <div class="map card reveal">
-          <div class="map__top">
-            <h4>Lokasi</h4>
-            <a id="directionBtn" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener">
-              Petunjuk Arah
-            </a>
-          </div>
-          <iframe
-            id="mapsFrame"
-            title="Google Maps Lokasi Acara"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            src="">
-          </iframe>
-        </div>
-          
-        <div class="card reveal">
-            <h4>Ngunduh Mantu/h4>
+          <!-- Kartu Resepsi -->
+          <div class="card reveal">
+            <h4>Resepsi</h4>
             <p class="muted" id="resepsiTime">11.00 - 14.00 WIB</p>
             <p id="resepsiPlace"><strong>Gedung Serbaguna Bahagia</strong></p>
-            <p class="muted" id="resepsiAddress">Jl. ... No. ..., Guntur</p>
+            <p class="muted" id="resepsiAddress">Jl. Melati No. 45, Guntur</p>
+            <!-- Tombol pemicu -->
+            <button class="btn btn--sm btn--outline" onclick="changeMap('resepsi')">Lihat Lokasi Resepsi</button>
           </div>
         </div>
 
-        <div class="map card reveal">
+        <!-- Area Peta -->
+        <div class="map card reveal" style="margin-top: 2rem;">
           <div class="map__top">
-            <h4>Lokasi</h4>
-            <a id="directionBtn" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener">
-              Petunjuk Arah
+            <h4 id="mapTitle">Lokasi Akad</h4> <!-- Judul dinamis -->
+            <a id="directionBtn" class="btn btn--primary btn--sm" href="URL_MAPS_AKAD" target="_blank" rel="noopener">
+          Petunjuk Arah
             </a>
           </div>
           <iframe
@@ -177,7 +166,8 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
-            src="">
+            src="URL_EMBED_AKAD" 
+            style="width:100%; height:300px; border:0;">
           </iframe>
         </div>
       </div>
@@ -316,6 +306,7 @@
 </body>
 
 </html>
+
 
 
 
