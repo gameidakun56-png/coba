@@ -234,8 +234,7 @@ function renderGifts(gift){
       <h4>${safeText(acc.bank || "Rekening")}</h4>
       <p><strong>${safeText(acc.name || "")}</strong></p>
       <p class="muted"><span class="mono">${safeText(acc.number || "")}</span></p>
-      <button class="btn btn--primary btn--sm" type="button">Salin Nomor</button>
-      <p class="muted small" style="margin:10px 0 0">Terima kasih 🙏</p>
+      <button style="margin:10px 0 0" class="btn btn--primary btn--sm" type="button">Salin Nomor</button>
     `;
     const btn = card.querySelector("button");
     btn.addEventListener("click", async ()=>{
@@ -515,4 +514,5 @@ function registerSW(){
     console.error(err);
     alert("Gagal memuat undangan. Pastikan file lengkap dan path benar.");
   }
+
 })();
