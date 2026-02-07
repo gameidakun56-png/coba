@@ -132,23 +132,20 @@
 
         <div class="grid2">
           <!-- Kartu Akad -->
-          <div class="card reveal">
+          <div class="card reveal" onclick="updateMapContent('akad')" style="cursor: pointer;">
             <h4>Akad Nikah</h4>
-            <p class="muted" id="akadTime">09.00 - 10.00 WIB</p>
-            <p id="akadPlace"><strong>Masjid Al-Ikhlas</strong></p>
-            <p class="muted" id="akadAddress">Jl. Mawar No. 123, Guntur</p>
-            <!-- Tombol pemicu -->
-            <button class="btn btn--sm btn--outline" onclick="changeMap('akad')">Lihat Lokasi Akad</button>
+            <p class="muted" id="akadTime"></p>
+            <p id="akadPlace"></p>
+            <p class="muted" id="akadAddress"></p>
+            <small class="btn-link">Klik untuk lihat peta</small>
           </div>
-
           <!-- Kartu Resepsi -->
-          <div class="card reveal">
+          <div class="card reveal" onclick="updateMapContent('resepsi')" style="cursor: pointer;">
             <h4>Resepsi</h4>
-            <p class="muted" id="resepsiTime">11.00 - 14.00 WIB</p>
-            <p id="resepsiPlace"><strong>Gedung Serbaguna Bahagia</strong></p>
-            <p class="muted" id="resepsiAddress">Jl. Melati No. 45, Guntur</p>
-            <!-- Tombol pemicu -->
-            <button class="btn btn--sm btn--outline" onclick="changeMap('resepsi')">Lihat Lokasi Resepsi</button>
+            <p class="muted" id="resepsiTime"></p>
+            <p id="resepsiPlace"></p>
+            <p class="muted" id="resepsiAddress"></p>
+            <small class="btn-link">Klik untuk lihat peta</small>
           </div>
         </div>
 
@@ -306,6 +303,7 @@
 </body>
 
 </html>
+
 
 
 
