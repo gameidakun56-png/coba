@@ -27,19 +27,19 @@
   "event": {
     "dateISO": "2026-03-24T09:00:00+07:00",
     "timezoneLabel": "WIB",
-    "akad": {
-      "time": "09.00 - 10.00",
-      "place": "Masjid ...",
-      "address": "Jl. ... No. ..., Guntur",
+    "Akad & Resepsi": {
+      "time": "12.00 - Selesai",
+      "place": "Masjid Baitul Makmur",
+      "address": "Dukuh Sekelor 09/05, Bumiharjo, Keling, Jepara - Jawa Tengah",
       "mapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d330.7679820015971!2d110.83495291539654!3d-6.4280253014493445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e713b1464548e09%3A0x94007fd4c7a808b!2sBumiharjo%2C%20Kec.%20Keling%2C%20Kabupaten%20Jepara%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1770494137410!5m2!1sid!2sid",
       "mapsDirection": "https://maps.app.goo.gl/fr2UzpsewL5CJ42L9"
     },
-    "resepsi": {
-      "time": "11.00 - 14.00",
-      "place": "Gedung Serbaguna Bahagia",
-      "address": "Jl. ... No. ..., Guntur",
-      "mapsEmbed": "https://www.google.com",
-      "mapsDirection": "https://maps.google.com"
+    "Ngunduh Mantu": {
+      "time": "09.00 - Selesai",
+      "place": "Rumah Mempelai Pria",
+      "address": "Desa Bulakwaru 01/03, Tarub, Tegal - Jawa Tengah",
+      "mapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d901.0347676568163!2d109.19237803632491!3d-6.92307882279527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fc7006fe36157%3A0x9004d9abac5c0337!2sBengkel%20Helikopter%20dan%20Pesawat!5e0!3m2!1sid!2sid!4v1770494682195!5m2!1sid!2sid",
+      "mapsDirection": "https://maps.app.goo.gl/oPMB5TPL5AThu2VQ8"
     }
   },
   "media": {
@@ -99,6 +99,7 @@
   }
 
 }
+
 
 
 
