@@ -126,12 +126,10 @@ function updateMapContent(type) {
     mapFrame.src = event.ngunduh.mapsEmbed;
     dirBtn.href = event.ngunduh.mapsDirection;
   }
-}
 
   // Efek transisi
   mapFrame.style.opacity = "0.5";
   setTimeout(() => mapFrame.style.opacity = "1", 300);
-}
 
 function setGuestName(){
   const raw = getQueryParam("to");
@@ -533,6 +531,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
