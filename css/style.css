@@ -442,7 +442,8 @@ input:focus, select:focus, textarea:focus{
   .btn, .icon-btn, .gitem img{ transition:none; }
 }
 
-.margin {
+.margin-top {
     margin-top: 10px;
 }
 ``
+
