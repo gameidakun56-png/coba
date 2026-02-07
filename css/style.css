@@ -389,11 +389,7 @@ input:focus, select:focus, textarea:focus{
   box-shadow: var(--shadow);
 }
 .gate__badge{
-  display:inline-flex;
   padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(167,139,250,0.14);
-  border: 1px solid rgba(167,139,250,0.22);
   color: rgba(255,255,255,0.9);
   font-weight: 800;
   margin: 0 0 10px;
@@ -443,6 +439,7 @@ input:focus, select:focus, textarea:focus{
 }
 }
 ``
+
 
 
 
