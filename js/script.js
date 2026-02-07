@@ -72,7 +72,7 @@ function applyTheme(){
   $("#eventDateText").textContent = prettyDate(c?.event?.dateISO || new Date().toISOString());
   $("#eventCityText").textContent = c?.site?.city || "";
 
-  // event cards
+    // event cards
   $("#akadTime").textContent = `${c?.event?.akad?.time || ""} ${c?.event?.timezoneLabel || ""}`.trim();
   $("#akadPlace").innerHTML = `<strong>${safeText(c?.event?.akad?.place || "")}</strong>`;
   $("#akadAddress").textContent = c?.event?.akad?.address || "";
@@ -81,46 +81,9 @@ function applyTheme(){
   $("#resepsiPlace").innerHTML = `<strong>${safeText(c?.event?.resepsi?.place || "")}</strong>`;
   $("#resepsiAddress").textContent = c?.event?.resepsi?.address || "";
 
-// 1. Taruh fungsi ini di level paling luar (global scope) 
-// agar bisa dipanggil oleh onclick="updateMapContent('...')" di HTML
-function updateMapContent(type) {
-  // Mengambil data dari state global yang sudah diisi loadConfig
-  const event = state.config.event;
-  const mapFrame = document.getElementById('mapsFrame');
-  const dirBtn = document.getElementById('directionBtn');
-  
-  if (!event || !mapFrame) return;
+  // Inisialisasi peta default
+  updateMapContent('akad');
 
-  if (type === 'akad') {
-    mapFrame.src = event.akad.mapsEmbed;
-    dirBtn.href = event.akad.mapsDirection;
-  } else {
-    mapFrame.src = event.resepsi.mapsEmbed;
-    dirBtn.href = event.resepsi.mapsDirection;
-  }
-
-  // Animasi
-  mapFrame.classList.add('fade-in');
-  setTimeout(() => mapFrame.classList.remove('fade-in'), 500);
-}
-
-// 2. Di dalam fungsi applyTheme(), cukup panggil inisialisasi awal saja
-function applyTheme() {
-  const c = state.config;
-  // ... kode pengisian nama mempelai dll ...
-
-  // Bagian Event Cards (Gunakan data dari variabel 'c' yang sudah ada)
-  $("#akadTime").textContent = `${c?.event?.akad?.time || ""} ${c?.event?.timezoneLabel || ""}`;
-  $("#akadPlace").innerHTML = `<strong>${safeText(c?.event?.akad?.place)}</strong>`;
-  $("#akadAddress").textContent = c?.event?.akad?.address;
-
-  $("#resepsiTime").textContent = `${c?.event?.resepsi?.time || ""} ${c?.event?.timezoneLabel || ""}`;
-  $("#resepsiPlace").innerHTML = `<strong>${safeText(c?.event?.resepsi?.place)}</strong>`;
-  $("#resepsiAddress").textContent = c?.event?.resepsi?.address;
-
-  // Set tampilan peta default pertama kali tanpa fetch ulang
-  updateMapContent('akad'); 
-  
   // story
   renderStory(c?.story || []);
 
@@ -128,7 +91,7 @@ function applyTheme() {
   renderGallery(c?.media?.gallery || []);
 
   // gifts
-  renderGifts(c?.gift);
+  if (typeof renderGifts === "function") renderGifts(c?.gift);
 
   // RSVP settings
   const paxInput = $("#rsvpPax");
@@ -138,17 +101,36 @@ function applyTheme() {
   const bgm = $("#bgm");
   if(bgm && c?.media?.music?.src) bgm.src = c.media.music.src;
 
-  // toggle gift section
-  if(c?.gift?.enable === false){
-    const giftSection = $("#gift");
-    if(giftSection) giftSection.style.display = "none";
+  // toggle sections
+  if(c?.gift?.enable === false) $("#gift")?.style.setProperty("display", "none");
+  if(c?.rsvp?.enable === false) {
+    $("#rsvp")?.style.setProperty("display", "none");
+    $("#wishes")?.style.setProperty("display", "none");
   }
-  if(c?.rsvp?.enable === false){
-    const rsvpSection = $("#rsvp");
-    if(rsvpSection) rsvpSection.style.display = "none";
-    const wishSection = $("#wishes");
-    if(wishSection) wishSection.style.display = "none";
+} // Tutup fungsi applyTheme di sini
+
+// --- TARUH DI LUAR (GLOBAL SCOPE) ---
+function updateMapContent(type) {
+  const event = state.config?.event;
+  const mapFrame = document.getElementById('mapsFrame');
+  const dirBtn = document.getElementById('directionBtn');
+  const mapTitle = document.getElementById('mapTitle');
+  
+  if (!event || !mapFrame) return;
+
+  if (type === 'akad') {
+    if(mapTitle) mapTitle.innerText = "Lokasi Akad";
+    mapFrame.src = event.akad.mapsEmbed;
+    dirBtn.href = event.akad.mapsDirection;
+  } else {
+    if(mapTitle) mapTitle.innerText = "Lokasi Resepsi";
+    mapFrame.src = event.resepsi.mapsEmbed;
+    dirBtn.href = event.resepsi.mapsDirection;
   }
+
+  // Efek transisi
+  mapFrame.style.opacity = "0.5";
+  setTimeout(() => mapFrame.style.opacity = "1", 300);
 }
 
 function setGuestName(){
@@ -551,6 +533,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
