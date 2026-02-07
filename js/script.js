@@ -77,9 +77,9 @@ function applyTheme(){
   $("#akadPlace").innerHTML = `<strong>${safeText(c?.event?.akad?.place || "")}</strong>`;
   $("#akadAddress").textContent = c?.event?.akad?.address || "";
 
-  $("#resepsiTime").textContent = `${c?.event?.ngunduh?.time || ""} ${c?.event?.timezoneLabel || ""}`.trim();
-  $("#resepsiPlace").innerHTML = `<strong>${safeText(c?.event?.ngunduh?.place || "")}</strong>`;
-  $("#resepsiAddress").textContent = c?.event?.ngunduh?.address || "";
+  $("#ngunduhTime").textContent = `${c?.event?.ngunduh?.time || ""} ${c?.event?.timezoneLabel || ""}`.trim();
+  $("#ngunduhPlace").innerHTML = `<strong>${safeText(c?.event?.ngunduh?.place || "")}</strong>`;
+  $("#ngunduhAddress").textContent = c?.event?.ngunduh?.address || "";
 
   // Inisialisasi peta default
   updateMapContent('akad');
@@ -533,6 +533,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
