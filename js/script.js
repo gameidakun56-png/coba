@@ -82,33 +82,46 @@ function applyTheme(){
   $("#resepsiAddress").textContent = c?.event?.resepsi?.address || "";
 
   // maps
-  function changeMap(type) {
-    const frame = document.getElementById('mapsFrame');
-    const btn = document.getElementById('directionBtn');
-    const title = document.getElementById('mapTitle');
+  // Simpan data event secara global setelah fetch config.json
+  let eventData = {};
 
-    // Link dari Google Maps (Ganti dengan link asli Anda)
-    const data = {
-      akad: {
-        title: "Lokasi Akad",
-        embed: "https://www.google.com...",
-        link: "https://maps.google.com"
-      },
-      resepsi: {
-        title: "Lokasi Resepsi",
-        embed: "https://www.google.com...",
-        link: "https://maps.google.com"
-      }
-    };
+  fetch('config.json')
+     .then(response => response.json())
+     .then(data => {
+        eventData = data.event;
+        setupEventUI();
+     });
 
-    // Proses penggantian konten
-    frame.src = data[type].embed;
-    btn.href = data[type].link;
-    title.innerText = data[type].title;
+  function setupEventUI() {
+  // Isi teks detail acara
+     document.getElementById('akadTime').innerText = `${eventData.akad.time} ${eventData.timezoneLabel}`;
+     document.getElementById('akadPlace').innerHTML = `<strong>${eventData.akad.place}</strong>`;
+     document.getElementById('akadAddress').innerText = eventData.akad.address;
 
-    // Opsional: Scroll halus ke area peta setelah klik
-    document.getElementById('mapsFrame').scrollIntoView({ behavior: 'smooth', block: 'center' });
+     document.getElementById('resepsiTime').innerText = `${eventData.resepsi.time} ${eventData.timezoneLabel}`;
+     document.getElementById('resepsiPlace').innerHTML = `<strong>${eventData.resepsi.place}</strong>`;
+     document.getElementById('resepsiAddress').innerText = eventData.resepsi.address;
+
+  // Set default peta (misalnya akad dulu)
+     updateMapContent('akad');
   }
+
+  function updateMapContent(type) {
+     const mapFrame = document.getElementById('mapsFrame');
+     const dirBtn = document.getElementById('directionBtn');
+  
+     if (type === 'akad') {
+        mapFrame.src = eventData.akad.mapsEmbed;
+        dirBtn.href = eventData.akad.mapsDirection;
+  } else {
+        mapFrame.src = eventData.resepsi.mapsEmbed;
+        dirBtn.href = eventData.resepsi.mapsDirection;
+  }
+
+  // Animasi sedikit agar user tahu peta berubah
+     mapFrame.classList.add('fade-in');
+     setTimeout(() => mapFrame.classList.remove('fade-in'), 500);
+   }
 
   // story
   renderStory(c?.story || []);
@@ -540,6 +553,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
