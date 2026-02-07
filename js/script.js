@@ -116,21 +116,23 @@ function updateMapContent(type) {
   const mapTitle = document.getElementById('mapTitle');
   
   if (!event || !mapFrame) return;
-
-  if (type === 'akad') {
-    if(mapTitle) mapTitle.innerText = "Lokasi Akad";
-    mapFrame.src = event.akad.mapsEmbed;
-    dirBtn.href = event.akad.mapsDirection;
-  } else {
-    if(mapTitle) mapTitle.innerText = "Lokasi Ngunduh Mantu";
-    mapFrame.src = event.ngunduh.mapsEmbed;
-    dirBtn.href = event.ngunduh.mapsDirection;
-  }
-
-  // Efek transisi
-  mapFrame.style.opacity = "0.5";
-  setTimeout(() => mapFrame.style.opacity = "1", 300);
-
+  
+  // Efek transisi saat ganti
+  mapFrame.style.opacity = "0";
+  setTimeout(() => {
+    if (type === 'akad') {
+      if(mapTitle) mapTitle.innerText = "Lokasi Akad";
+      mapFrame.src = event.akad.mapsEmbed;
+      dirBtn.href = event.akad.mapsDirection;
+    } else {
+      if(mapTitle) mapTitle.innerText = "Lokasi Ngunduh Mantu";
+      mapFrame.src = event.ngunduh.mapsEmbed;
+      dirBtn.href = event.ngunduh.mapsDirection;
+    }
+    mapFrame.style.opacity = "1";
+  }, 300);
+}
+   
 function setGuestName(){
   const raw = getQueryParam("to");
   const name = safeText(decodeURIComponent(raw.replace(/\+/g," "))) || "Tamu Undangan";
@@ -531,6 +533,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
