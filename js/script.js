@@ -121,7 +121,7 @@ function updateMapContent(type) {
   mapFrame.style.opacity = "0";
   setTimeout(() => {
     if (type === 'akad') {
-      if(mapTitle) mapTitle.innerText = "Lokasi Akad";
+      if(mapTitle) mapTitle.innerText = "Lokasi Akad & Resepsi";
       mapFrame.src = event.akad.mapsEmbed;
       dirBtn.href = event.akad.mapsDirection;
     } else {
@@ -251,7 +251,6 @@ function renderGifts(gift){
       <p><strong>${safeText(acc.name || "")}</strong></p>
       <p class="muted"><span class="mono">${safeText(acc.number || "")}</span></p>
       <button class="btn btn--primary btn--sm" type="button">Salin Nomor</button>
-      <p class="muted small" style="margin:10px 0 0">Terima kasih 🙏</p>
     `;
     const btn = card.querySelector("button");
     btn.addEventListener("click", async ()=>{
@@ -266,8 +265,6 @@ function renderGifts(gift){
     });
     wrap.appendChild(card);
   });
-
-  $("#giftAddress").textContent = gift.addressGift || "-";
 }
 
 /* ------------------- Storage helpers ------------------- */
@@ -533,6 +530,7 @@ function registerSW(){
   }
 
 })();
+
 
 
 
