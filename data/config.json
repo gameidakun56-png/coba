@@ -30,15 +30,17 @@
     "akad": {
       "time": "09.00 - 10.00",
       "place": "Masjid ...",
-      "address": "Jl. ... No. ..., Guntur"
+      "address": "Jl. ... No. ..., Guntur",
+      "mapsEmbed": "https://www.google.com",
+      "mapsDirection": "https://maps.google.com"
     },
     "resepsi": {
       "time": "11.00 - 14.00",
       "place": "Gedung Serbaguna Bahagia",
-      "address": "Jl. ... No. ..., Guntur"
-    },
-    "mapsEmbedUrl": "https://www.google.com/maps?q=-6.200000,106.816666&output=embed",
-    "mapsDirectionUrl": "https://maps.google.com/?q=-6.200000,106.816666"
+      "address": "Jl. ... No. ..., Guntur",
+      "mapsEmbed": "https://www.google.com",
+      "mapsDirection": "https://maps.google.com"
+    }
   },
   "media": {
     "music": {
@@ -97,6 +99,7 @@
   }
 
 }
+
 
 
 
