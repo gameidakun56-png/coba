@@ -59,6 +59,44 @@ navLinks.forEach(link => {
   link.onclick = toggleMenu;
 });
 
+// Gunakan state global untuk melacak status musik
+let isMusicPlaying = false;
+
+function toggleMusic() {
+  const bgm = document.getElementById("bgm");
+  const muteBtn = document.getElementById("muteBtn");
+  
+  if (!bgm) return;
+
+  if (bgm.paused) {
+    bgm.play().catch(e => console.log("Gagal putar:", e));
+    isMusicPlaying = true;
+    document.body.classList.add("playing"); // Jalankan animasi putar
+    muteBtn.innerHTML = '<span class="icon rotate">♪</span>';
+  } else {
+    bgm.pause();
+    isMusicPlaying = false;
+    document.body.classList.remove("playing"); // Stop animasi putar
+    muteBtn.innerHTML = '<span class="icon"><s>♪</s></span>';
+  }
+}
+
+// Pasang event listener saat Buka Undangan diklik
+const openBtn = document.getElementById("openBtn");
+if (openBtn) {
+  openBtn.addEventListener("click", () => {
+    const bgm = document.getElementById("bgm");
+    if (bgm) {
+      bgm.play().then(() => {
+        isMusicPlaying = true;
+        document.body.classList.add("playing");
+      }).catch(e => console.log("Autoplay dicegah:", e));
+    }
+    // Sembunyikan gate
+    document.getElementById("gate").classList.add("gate--hidden");
+  });
+}
+
 // Logic Animasi Musik (Update fungsi muteBtn Anda)
 const muteBtn = document.getElementById('muteBtn');
 muteBtn.addEventListener('click', () => {
@@ -233,4 +271,5 @@ function renderGifts(gift){
     wrap.appendChild(card);
   });
 }
+
 
