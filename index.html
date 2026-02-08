@@ -26,14 +26,30 @@
   <div id="gate" class="gate" aria-modal="true" role="dialog">
     <div class="gate__bg" aria-hidden="true"></div>
     <div class="gate__card">
+      <!-- Konten diatur otomatis oleh CSS Grid & Place-items: center -->
       <p class="gate__badge">Undangan Pernikahan</p>
-      <h1 class="gate__title"><span id="brandText">K & K</span></h1>
-      <p class="gate__subtitle">Kepada Yth.</p>
-      <h2 class="gate__guest" id="guestName">Tamu Undangan</h2>
-      <p class="gate__hint">Mohon maaf apabila ada kesalahan penulisan nama & gelar.</p>
-      <!-- Kembalikan ke tombol standar tanpa onclick manual -->
-      <button id="openBtn" class="btn btn--primary" type="button">
-        Buka Undangan
+      
+      <h1 class="gate__title">
+        <span id="brandText">K & N</span>
+      </h1>
+  
+      <div class="gate__to">
+        <p class="gate__subtitle">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <h2 class="gate__guest" id="guestName">Tamu Undangan</h2>
+      </div>
+  
+      <p class="gate__hint small muted">
+        Mohon maaf apabila ada kesalahan penulisan nama & gelar.
+      </p>
+  
+      <div class="gate__actions">
+        <button id="openBtn" class="btn btn--primary" type="button">
+          <span class="icon">✉</span> Buka Undangan
+        </button>
+      </div>
+  
+      <button id="muteBtnGate" class="btn btn--ghost btn--sm" type="button">
+        Musik: Off
       </button>
     </div>
   </div>
@@ -243,6 +259,7 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
