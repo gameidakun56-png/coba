@@ -38,6 +38,33 @@ async function loadConfig(){
   return res.json();
 }
 
+// Logic Sidebar
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeMenu');
+const sideNav = document.getElementById('sideNav');
+const overlay = document.getElementById('navOverlay');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const toggleMenu = () => {
+  sideNav.classList.toggle('active');
+  overlay.style.display = sideNav.classList.contains('active') ? 'block' : 'none';
+};
+
+menuBtn.onclick = toggleMenu;
+closeBtn.onclick = toggleMenu;
+overlay.onclick = toggleMenu;
+
+// Menutup menu saat link diklik
+navLinks.forEach(link => {
+  link.onclick = toggleMenu;
+});
+
+// Logic Animasi Musik (Update fungsi muteBtn Anda)
+const muteBtn = document.getElementById('muteBtn');
+muteBtn.addEventListener('click', () => {
+  document.body.classList.toggle('playing'); // Menjalankan animasi putar
+});
+
 // --- FUNGSI UPDATE PETA ---
 function updateMapContent(type) {
   const event = state.config?.event;
@@ -206,3 +233,4 @@ function renderGifts(gift){
     wrap.appendChild(card);
   });
 }
+
