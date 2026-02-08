@@ -179,13 +179,10 @@
     </section>
 
     <!-- Gallery -->
+        <!-- Gallery -->
     <section id="gallery" class="section section--alt">
       <div class="container">
-        <div class="section__head">
-          <h3 class="section__title reveal">Galeri</h3>
-          </div>
-        </div>
-
+        <h3 class="section__title reveal">Galeri</h3>
         <div id="galleryGrid" class="gallery reveal"></div>
       </div>
 
@@ -196,94 +193,60 @@
       </div>
     </section>
 
-    <!-- Gift -->
+    <!-- RSVP Section -->
+    <section id="rsvp" class="section">
+      <div class="container">
+        <h3 class="section__title reveal">Konfirmasi Kehadiran</h3>
+        <form id="rsvpForm" class="card reveal">
+          <div class="field">
+            <span>Nama Lengkap</span>
+            <input type="text" id="rsvpName" placeholder="Nama Anda" required>
+          </div>
+          <div class="field">
+            <span>Kehadiran</span>
+            <select id="rsvpAttend">
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 10px;">Kirim Konfirmasi</button>
+          <p id="rsvpNote" class="small muted" style="margin-top: 10px; text-align: center;"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Gift / Amplop Digital -->
     <section id="gift" class="section section--alt">
       <div class="container">
         <h3 class="section__title reveal">Amplop Digital</h3>
-        <p class="section__desc reveal">Doa restu sudah sangat berarti. Jika ingin mengirim hadiah, bisa melalui:</p>
-
+        <p class="section__desc reveal">Doa restu Anda sangat berarti bagi kami. Jika ingin memberi hadiah, silakan melalui:</p>
         <div id="giftWrap" class="grid2"></div>
-          
-        </div>
       </div>
     </section>
 
-    <!-- RSVP -->
-    <section id="rsvp" class="section">
-      <div class="container">
-        <h3 class="section__title reveal">RSVP</h3>
-        <p class="section__desc reveal">Konfirmasi kehadiranmu akan sangat membantu kami.</p>
-
-        <div class="grid2">
-          <form id="rsvpForm" class="card reveal">
-            <label class="field">
-              <span>Nama</span>
-              <input id="rsvpName" type="text" placeholder="Nama kamu" required maxlength="60" />
-            </label>
-
-            <label class="field">
-              <span>Kehadiran</span>
-              <select id="rsvpAttend" required>
-                <option value="Hadir">Hadir</option>
-                <option value="Tidak Hadir">Tidak Hadir</option>
-                <option value="Masih Ragu">Masih Ragu</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Jumlah Tamu (Pax)</span>
-              <input id="rsvpPax" type="number" min="1" max="5" value="1" required />
-            </label>
-
-            <label class="field">
-              <span>Pesan</span>
-              <textarea id="rsvpMsg" rows="3" placeholder="Tulis pesan singkat..." maxlength="200"></textarea>
-            </label>
-
-            <button class="btn btn--primary" type="submit">Kirim RSVP</button>
-            <p id="rsvpNote" class="muted small"></p>
-          </form>
-
-          <div class="card reveal">
-            <h4>Ringkasan</h4>
-            <div class="stats">
-              <div><strong id="statTotal">0</strong><span>Total</span></div>
-              <div><strong id="statHadir">0</strong><span>Hadir</span></div>
-              <div><strong id="statTidak">0</strong><span>Tidak</span></div>
-            </div>
-
-            <hr class="sep" />
-
-            <h4>Ucapan Terbaru</h4>
-            <div id="wishPreview" class="wishlist"></div>
-            <a class="link" href="#wishes">Lihat semua ucapan →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ucapan -->
+    <!-- Ucapan Terima Kasih (Penutup) -->
     <section id="thanks" class="section">
-      <div class="container text-center reveal">
-        <h3 class="section__title">Terima Kasih</h3>
-        <p style="max-width: 600px; margin: 0 auto; line-height: 1.8;">
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu bagi kami. 
-          Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
-        </p>
-        <br>
-        <h2 class="hero__title" style="font-size: 2.5rem; margin-top: 1.5rem;">Khoiril & Nisa</h2>
-    
-        <footer class="footer">
-          <p class="small muted">design by <strong>@oridarkmode</strong></p>
-        </footer>
+      <div class="container" style="text-align: center;">
+        <div class="reveal">
+          <h3 class="section__title">Terima Kasih</h3>
+          <p>Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu bagi kami.</p>
+          <br>
+          <h2 class="hero__title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Khoiril & Nisa</h2>
+        </div>
       </div>
     </section>
   </main>
 
+  <footer class="footer" style="padding: 20px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+    <p class="small muted">&copy; 2026 Khoiril & Nisa. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Hubungkan JavaScript Anda -->
   <script src="js/script.js"></script>
 </body>
-
 </html>
+
+
 
 
 
