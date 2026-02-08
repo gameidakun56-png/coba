@@ -24,33 +24,34 @@
 <body>
   <!-- Cover / Gate -->
   <div id="gate" class="gate">
-  <!-- Background dengan overlay gambar & gradient -->
-  <div class="gate__bg"></div>
-  
-  <div class="gate__card reveal">
-    <p class="gate__badge">Undangan Pernikahan</p>
+    <div class="gate__bg"></div>
     
-    <h1 class="gate__title"><span id="brandText">K & N</span></h1>
+    <div class="gate__card reveal">
+      <p class="gate__badge">Undangan Pernikahan</p>
+      <h1 class="gate__title"><span id="brandText">K & N</span></h1>
 
-    <div class="gate__to">
-      <p class="gate__subtitle small muted">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-      <h2 class="gate__guest" id="guestName">Tamu Undangan</h2>
-    </div>
+      <div class="gate__to">
+        <p class="gate__subtitle small muted">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <h2 class="gate__guest" id="guestName">Tamu Undangan</h2>
+      </div>
 
-    <p class="gate__hint small">Mohon maaf apabila ada kesalahan penulisan nama & gelar.</p>
+      <p class="gate__hint small">Mohon maaf apabila ada kesalahan penulisan nama & gelar.</p>
 
-    <div class="gate__actions">
-      <button id="openBtn" class="btn btn--primary" type="button">
-        <span class="icon">✉</span> Buka Undangan
+      <div class="gate__actions">
+        <button id="openBtn" class="btn btn--primary" type="button">
+          <span class="icon">✉</span> Buka Undangan
+        </button>
+      </div>
+
+      <!-- Tombol musik diletakkan di dalam card agar ikut terpusat -->
+      <button id="muteBtnGate" class="btn btn--ghost btn--sm" type="button">
+        Musik: Off
       </button>
-    </div>
-  </div>
-  
-  <!-- Tombol musik di cover (Opsional) -->
-    <button id="muteBtnGate" class="btn btn--ghost btn--sm" type="button">
-      Musik: Off
-    </button>
-  </div>
+    </div> <!-- PENUTUP gate__card yang benar -->
+  </div> <!-- PENUTUP gate yang benar -->
+
+  <!-- WAJIB: Tambahkan tag audio di sini (di luar gate) -->
+  <audio id="bgm" loop preload="auto"></audio>
 
   <!-- Header Fixed -->
   <header class="header">
@@ -269,6 +270,7 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
