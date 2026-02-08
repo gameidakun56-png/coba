@@ -193,27 +193,42 @@ function copyToClipboard(text){
 
 // --- INISIALISASI UTAMA ---
 document.addEventListener("DOMContentLoaded", async () => {
-  // Fungsi Buka Gate (Jalur Darurat)
-  const openBtn = document.getElementById("openBtn");
-  const gate = document.getElementById("gate");
-  if (openBtn && gate) {
-    openBtn.onclick = () => {
-      gate.classList.add("gate--hidden");
-      const bgm = document.getElementById("bgm");
-      if (bgm) bgm.play().catch(() => console.log("Autoplay blocked"));
-    };
-  }
-
   try {
     state.config = await loadConfig();
     applyTheme();
     setGuestName();
     startCountdown();
     revealOnScroll();
+    if (typeof wireLightbox === "function") wireLightbox();
+
+    // LOGIKA TOMBOL BUKA (Hanya jalan saat diklik)
+    const openBtn = document.getElementById("openBtn");
+    const gate = document.getElementById("gate");
+    
+    if (openBtn && gate) {
+      openBtn.onclick = function() {
+        gate.classList.add("gate--hidden"); // Membuka cover
+        const bgm = document.getElementById("bgm");
+        if (bgm) bgm.play().catch(() => console.log("Autoplay blocked"));
+      };
+    }
+
+    // Tombol Musik (Toggle On/Off)
+    const muteBtn = document.getElementById("muteBtn");
+    if (muteBtn) {
+      muteBtn.onclick = () => {
+        const bgm = document.getElementById("bgm");
+        if (bgm.paused) {
+          bgm.play();
+          muteBtn.innerHTML = '<span class="icon">♪</span>';
+        } else {
+          bgm.pause();
+          muteBtn.innerHTML = '<span class="icon"><s>♪</s></span>';
+        }
+      };
+    }
   } catch (err) {
-    console.error("Gagal memuat data, tapi gate tetap bisa dibuka:", err);
+    console.error("Gagal memuat data:", err);
   }
 });
-
-
 
