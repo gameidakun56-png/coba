@@ -1,33 +1,38 @@
 {
   "brand": "FahriHabsyi Studio",
   "siteTitle": "Undangan Pernikahan",
+
   "theme": {
     "accent": "#C7B8FF",
     "accent2": "#7CF7D4",
     "bg": "#07060C"
   },
+
+  "guest": {
+    "paramName": "to",
+    "defaultName": "Tamu Undangan"
+  },
+
   "backgrounds": {
     "cover": "assets/img/bg-cover.jpg",
     "home": "assets/img/bg-home.jpg",
     "closing": "assets/img/bg-closing.jpg"
   },
-  "guest": {
-    "paramName": "to",
-    "defaultName": "Tamu Undangan"
-  },
+
   "cover": {
     "titleTop": "The Wedding Of",
     "title": "Fahri & Alya",
     "dateText": "Minggu, 16 Agustus 2026",
-    "coverImage": "assets/img/cover.jpg",
     "greeting": "Assalamu’alaikum Warahmatullahi Wabarakatuh"
   },
+
   "home": {
     "headline": "Kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari bahagia kami.",
     "locationText": "Guntur, Jawa Tengah",
     "eventISO": "2026-08-16T09:00:00+07:00",
     "timezone": "WIB"
   },
+
   "couple": {
     "bride": {
       "name": "Alya Putri",
@@ -42,6 +47,7 @@
       "instagram": "https://instagram.com/"
     }
   },
+
   "events": [
     {
       "type": "Akad & Resepsi",
@@ -78,6 +84,7 @@
       "mapDirection": "https://maps.google.com/?q=-6.200000,106.816666"
     }
   ],
+
   "gallery": {
     "photos": [
       "assets/img/gallery-1.jpg",
@@ -92,6 +99,7 @@
       }
     ]
   },
+
   "story": [
     {
       "year": "2022",
@@ -109,53 +117,52 @@
       "desc": "Kami memutuskan untuk melangkah bersama."
     }
   ],
+
   "gifts": {
     "enabled": true,
     "options": [
       {
         "label": "Transfer Bank",
+        "note": "BCA",
         "name": "Fahri Habsyi",
         "value": "1234567890",
-        "logo": "assets/img/banks/bank-placeholder.svg",
-        "note": "BCA"
+        "logo": "assets/img/banks/bank-placeholder.svg"
       },
       {
         "label": "E-Wallet",
+        "note": "DANA",
         "name": "Alya Putri",
         "value": "081234567890",
-        "logo": "assets/img/banks/wallet-placeholder.svg",
-        "note": "DANA"
+        "logo": "assets/img/banks/wallet-placeholder.svg"
       },
       {
         "label": "Alamat Kado",
+        "note": "Pengiriman",
         "name": "Rumah",
         "value": "Jl. ... No. ..., Guntur",
-        "logo": "assets/img/banks/gift-placeholder.svg",
-        "note": "Pengiriman"
+        "logo": "assets/img/banks/gift-placeholder.svg"
       }
     ]
   },
+
   "music": {
     "src": "assets/audio/song.mp3",
     "startMuted": true
   },
+
   "rsvp": {
     "enabled": true,
-    "maxPax": 5,
-    "mode": "localStorage",
-    "endpointUrl": ""
+    "maxPax": 5
   },
+
   "sheet": {
     "enabled": true,
-    "mode": "appsScript",
-    "postEndpoint": "https://script.google.com/macros/s/AKfycbyiCS95xf1x0XLjuwpRCPjw6xaVx-9bvMV6_YhRfZHnDA2Tcl9Wxi0yQxqs8gQ7rVv2/exec",
-    "readMode": "gviz",
-    "spreadsheetId": "https://docs.google.com/spreadsheets/d/1ycqS4eo1q3nHhcgX_v1sVsYQNpkV-BKsCb6j-gO8WLk/edit?usp=sharing",
-    "sheetName": "Wishes"
+    "postEndpoint": "ISI_URL_WEB_APP_APPS_SCRIPT",
+    "readEndpoint": "ISI_URL_WEB_APP_APPS_SCRIPT"
   },
+
   "closing": {
     "title": "Terima Kasih",
     "desc": "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu."
   }
 }
-
