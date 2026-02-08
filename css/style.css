@@ -360,8 +360,21 @@ input:focus, select:focus, textarea:focus{
 }
 
 /* Gate */
-.gate { z-index: 9999 !important; }
-#openBtn { cursor: pointer !important; position: relative; z-index: 10001 !important; }
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid; /* Tetap muncul di awal */
+  place-items: center;
+  background: var(--bg);
+  transition: transform 1s ease-in-out, opacity 1s;
+}
+
+/* Hanya hilang jika ada class ini */
+.gate--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 .gate__bg{
   position:absolute;
@@ -390,7 +403,6 @@ input:focus, select:focus, textarea:focus{
   font-size: 22px;
 }
 .gate__hint{ margin: 0 0 16px; color: var(--muted); }
-.gate.hidden{ display:none; }
 
 /* Reveal animation */
 .reveal{
@@ -445,6 +457,7 @@ input:focus, select:focus, textarea:focus{
 }
 }
 ``
+
 
 
 
