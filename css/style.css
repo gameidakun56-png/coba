@@ -1,5 +1,5 @@
 /* =========================================================
-   Wedding Invitation - Full Synchronized Styles
+   Wedding Invitation - Precision Mobile & Desktop
 ========================================================= */
 
 :root {
@@ -9,23 +9,20 @@
   --muted: rgba(255,255,255,0.68);
   --line: rgba(255,255,255,0.14);
   --accent: #A78BFA;
-  --accent-glow: rgba(167, 139, 250, 0.3);
-  --shadow: 0 18px 50px rgba(0,0,0,0.45);
   --radius: 18px;
   --container: 1040px;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(1200px 600px at 20% -10%, rgba(167,139,250,0.15), transparent 60%),
-              radial-gradient(900px 500px at 100% 30%, rgba(52,211,153,0.1), transparent 55%),
-              var(--bg);
+  background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 /* --- Layout --- */
@@ -35,13 +32,12 @@ body {
 
 .section__title {
   font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(28px, 5vw, 42px);
   margin-bottom: 12px;
   text-align: center;
 }
 
-.section__desc { color: var(--muted); text-align: center; margin-bottom: 40px; }
+.section__desc { color: var(--muted); text-align: center; margin-bottom: 40px; font-size: 14px; }
 
 /* --- Components --- */
 .card {
@@ -52,47 +48,23 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .card[onclick] { cursor: pointer; }
 .card[onclick]:hover {
   transform: translateY(-5px);
   border-color: var(--accent);
-  box-shadow: 0 10px 25px var(--accent-glow);
 }
 
 /* --- Grid --- */
 .grid2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-/* --- Buttons --- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: rgba(255,255,255,0.05);
-  color: var(--text);
-}
-
-.btn--primary {
-  background: var(--accent);
-  color: #0b0b10 !important;
-  border: none;
-}
-
-.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px var(--accent-glow); }
-
-/* --- Gate (Cover) Center Design --- */
+/* --- Gate (Cover) --- */
 .gate {
   position: fixed;
   inset: 0;
@@ -110,144 +82,96 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   padding: 3rem 2rem;
   width: min(420px, 90%);
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   backdrop-filter: blur(20px);
-  box-shadow: var(--shadow);
 }
 
 .gate__title { font-family: "Playfair Display", serif; font-size: 42px; margin: 0; }
 .gate__guest { color: var(--accent); font-size: 24px; margin: 5px 0; }
 
-/* --- Hero & Countdown --- */
-.hero { min-height: 100vh; display: grid; place-items: center; text-align: center; }
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  font-size: 14px;
+}
 
-.countdown { display: flex; justify-content: center; gap: 15px; margin: 25px 0; flex-wrap: wrap; }
+.btn--primary { background: var(--accent); color: #0b0b10 !important; border: none; }
+
+/* --- Countdown --- */
+.countdown { display: flex; justify-content: center; gap: 15px; margin: 25px 0; }
 .countdown__item {
   min-width: 80px;
   padding: 15px;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 12px;
+  text-align: center;
 }
 .countdown__item span { font-size: 24px; font-weight: 700; display: block; }
 
-/* --- Maps --- */
-#mapsFrame {
-  width: 100%;
-  height: 350px;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  margin-top: 15px;
-  transition: opacity 0.4s ease;
-}
-
-/* --- Gallery --- */
-.gallery {
+/* --- Couple --- */
+.couple {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
 }
-.gitem img {
+.person__photo {
   width: 100%;
-  height: 250px;
+  aspect-ratio: 4/5;
   object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-.gitem:hover img { transform: scale(1.03); }
-
-/* --- Timeline Cerita --- */
-.timeline { display: grid; gap: 20px; }
-.titem {
-  padding-left: 20px;
-  border-left: 2px solid var(--accent);
+  border-radius: 16px;
+  border: 1px solid var(--line);
 }
 
-/* --- Lightbox --- */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  place-items: center;
-  z-index: 3000;
-}
-.lightbox.show { display: grid; }
-.lightbox img { max-width: 90%; max-height: 80vh; border-radius: 10px; }
+/* --- Maps & Gallery --- */
+#mapsFrame { width: 100%; height: 350px; border-radius: 16px; border: 0; margin-top: 15px; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.gitem img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
 
 /* --- Animations --- */
 .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
 .reveal.show { opacity: 1; transform: translateY(0); }
-}
+
 /* =========================================================
-   Mobile Optimization (HP Precision)
+   Mobile Optimization (HP Precision) 
 ========================================================= */
-
-@media (max-width: 600px) {
-  /* 1. Kurangi padding section agar tidak terlalu banyak ruang kosong */
-  .section { padding: 48px 0; }
-
-  /* 2. Hero: Kecilkan teks judul agar tidak pecah baris berantakan */
-  .hero__title { 
-    font-size: 38px !important; 
-    line-height: 1.2; 
-    margin-bottom: 15px;
-  }
+@media (max-width: 768px) {
+  .section { padding: 50px 0; }
   
-  /* 3. Countdown: Buat kotak lebih kecil & pas di layar HP */
+  .hero__title { font-size: 42px !important; }
+  
+  .grid2 { grid-template-columns: 1fr; }
+  
+  .couple { grid-template-columns: 1fr; }
+  .ring { transform: rotate(90deg); margin: 10px 0; font-size: 30px; }
+  
   .countdown { gap: 8px; }
-  .countdown__item {
-    min-width: 65px;
-    padding: 8px 5px;
-  }
-  .countdown__item span { font-size: 18px; }
-  .countdown__item small { font-size: 10px; }
-
-  /* 4. Couple: Pastikan foto mempelai tidak terlalu besar & margin rapi */
-  .couple { 
-    grid-template-columns: 1fr; 
-    gap: 30px; 
-    max-width: 280px; 
-    margin-inline: auto; 
-  }
-  .ring { display: none; } /* Simbol infinity sering mengganggu di HP */
-
-  /* 5. Grid Acara: Pastikan kartu Akad & Ngunduh Mantu tumpuk vertikal */
-  .grid2 { 
-    grid-template-columns: 1fr !important; 
-    gap: 15px; 
-  }
-  .card { padding: 15px; }
-
-  /* 6. Peta: Sesuaikan tinggi agar tidak memenuhi layar saat scroll */
-  #mapsFrame { height: 250px; }
-
-  /* 7. Gallery: Buat 2 kolom yang presisi */
-  .gallery { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 8px; 
-  }
-  .gitem img { height: 160px; }
-
-  /* 8. Gate (Cover): Pastikan kartu pas di layar kecil */
-  .gate__card {
-    width: 85%;
-    padding: 2.5rem 1.5rem;
-    gap: 1rem;
-  }
-  .gate__title { font-size: 32px; }
-  .gate__guest { font-size: 20px; }
-
-  /* 9. Tombol: Buat sedikit lebih kecil agar pas */
-  .btn { padding: 10px 20px; font-size: 13px; }
+  .countdown__item { min-width: 65px; padding: 10px 5px; }
+  .countdown__item span { font-size: 20px; }
   
-  /* 10. Hilangkan Navigasi Header di HP agar layar bersih */
-  .header { display: none; } 
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gitem img { height: 180px; }
+  
+  .header { display: none; }
 }
 
-
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { transition: none; opacity: 1; transform: none; }
+}
