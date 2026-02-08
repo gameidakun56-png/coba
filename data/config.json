@@ -6,6 +6,11 @@
     "accent2": "#7CF7D4",
     "bg": "#07060C"
   },
+  "backgrounds": {
+  "cover": "assets/img/bg-cover.jpg",
+  "home": "assets/img/bg-home.jpg",
+  "closing": "assets/img/bg-closing.jpg"
+  },
   "guest": {
     "paramName": "to",
     "defaultName": "Tamu Undangan"
@@ -133,4 +138,5 @@
   }
 
 }
+
 
