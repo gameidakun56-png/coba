@@ -157,8 +157,8 @@
 
   "sheet": {
     "enabled": true,
-    "postEndpoint": "ISI_URL_WEB_APP_APPS_SCRIPT",
-    "readEndpoint": "ISI_URL_WEB_APP_APPS_SCRIPT"
+    "postEndpoint": "https://script.google.com/macros/s/AKfycbz89KY1AluoYEzRnxsCFteg7pb9PYK5t4pl4WPx7XiMYcTQvUB_VbeeCEgHcQDP-gsuqw/exec",
+    "readEndpoint": "https://script.google.com/macros/s/AKfycbz89KY1AluoYEzRnxsCFteg7pb9PYK5t4pl4WPx7XiMYcTQvUB_VbeeCEgHcQDP-gsuqw/exec"
   },
 
   "closing": {
@@ -166,3 +166,4 @@
     "desc": "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu."
   }
 }
+
