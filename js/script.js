@@ -4,13 +4,12 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-const $ = (s, p=document) => p.querySelector(s);
-const $$ = (s, p=document) => [...p.querySelectorAll(s)];
-
-const state = {
-  config: null,
-  audioEnabled: false,
-  muted: true
+const setIfExist = (id, content, isHtml = false) => {
+  const el = document.getElementById(id);
+  if (el) {
+    if (isHtml) el.innerHTML = content;
+    else el.textContent = content;
+  }
 };
 
 function getQueryParam(name){
@@ -43,17 +42,17 @@ function updateMapContent(type) {
   const mapTitle = document.getElementById('mapTitle');
   
   if (!event || !mapFrame) return;
-  
+
   mapFrame.style.opacity = "0";
   setTimeout(() => {
     if (type === 'akad') {
       if(mapTitle) mapTitle.innerText = "Lokasi Akad & Resepsi";
       mapFrame.src = event.akad.mapsEmbed;
-      dirBtn.href = event.akad.mapsDirection;
+      if(dirBtn) dirBtn.href = event.akad.mapsDirection;
     } else {
       if(mapTitle) mapTitle.innerText = "Lokasi Ngunduh Mantu";
       mapFrame.src = event.ngunduh.mapsEmbed;
-      dirBtn.href = event.ngunduh.mapsDirection;
+      if(dirBtn) dirBtn.href = event.ngunduh.mapsDirection;
     }
     mapFrame.style.opacity = "1";
   }, 300);
@@ -61,43 +60,43 @@ function updateMapContent(type) {
 
 function applyTheme() {
   const c = state.config;
-
-  if(c?.site?.themeColor) {
-    document.documentElement.style.setProperty("--accent", c.site.themeColor);
-    const metaTheme = $('meta[name="theme-color"]');
-    if(metaTheme) metaTheme.setAttribute("content", c.site.themeColor);
+  if(!c) return;
   }
 
   const hero = $("#heroBg");
   if(hero && c?.site?.coverImage) hero.style.backgroundImage = `url("${c.site.coverImage}")`;
 
-  $("#brandText").textContent = c?.site?.brand || "Undangan";
-  $("#logoBrand").textContent = c?.site?.brand || "Undangan";
+  setIfExist("brandText", c.site?.brand);
+  setIfExist("logoBrand", c.site?.brand);
 
   // Couple
-  $("#groomName").textContent = c?.couple?.groom?.name;
-  $("#groomShort").textContent = c?.couple?.groom?.short;
+  setIfExist("groomName", c.couple?.groom?.name);
+  setIfExist("groomShort", c.couple?.groom?.short);
   $("#groomParents").textContent = c?.couple?.groom?.parents;
   $("#groomPhoto").src = c?.couple?.groom?.photo || $("#groomPhoto").src;
   $("#groomIg").href = c?.couple?.groom?.instagram || "#";
 
-  $("#brideName").textContent = c?.couple?.bride?.name;
-  $("#brideShort").textContent = c?.couple?.bride?.short;
+  setIfExist("brideName", c.couple?.bride?.name);
+  setIfExist("brideShort", c.couple?.bride?.short);
   $("#brideParents").textContent = c?.couple?.bride?.parents;
   $("#bridePhoto").src = c?.couple?.bride?.photo || $("#bridePhoto").src;
   $("#brideIg").href = c?.couple?.bride?.instagram || "#";
 
   // Event
-  $("#eventDateText").textContent = prettyDate(c?.event?.dateISO);
-  $("#eventCityText").textContent = c?.site?.city || "";
+  const tz = c.event?.timezoneLabel || "";
 
-  $("#akadTime").textContent = `${c?.event?.akad?.time || ""} ${c?.event?.timezoneLabel || ""}`;
-  $("#akadPlace").innerHTML = `<strong>${safeText(c?.event?.akad?.place)}</strong>`;
-  $("#akadAddress").textContent = c?.event?.akad?.address;
+  setIfExist("eventDateText", prettyDate(c.event?.dateISO));
+  setIfExist("eventCityText", c.site?.city);
 
-  $("#ngunduhTime").textContent = `${c?.event?.ngunduh?.time || ""} ${c?.event?.timezoneLabel || ""}`;
-  $("#ngunduhPlace").innerHTML = `<strong>${safeText(c?.event?.ngunduh?.place)}</strong>`;
-  $("#ngunduhAddress").textContent = c?.event?.ngunduh?.address;
+  // Bagian Ngunduh
+  setIfExist("akadTime", `${c.event?.akad?.time || ""} ${tz}`);
+  setIfExist("akadPlace", `<strong>${c.event?.akad?.place || ""}</strong>`, true);
+  setIfExist("akadAddress", c.event?.akad?.address);
+ 
+  // Bagian Ngunduh (Sesuaikan dengan ID di index.html baris 136-141)
+  setIfExist("ngunduhTime", `${c.event?.ngunduh?.time || ""} ${tz}`);
+  setIfExist("ngunduhPlace", `<strong>${c.event?.ngunduh?.place || ""}</strong>`, true);
+  setIfExist("ngunduhAddress", c.event?.ngunduh?.address);
 
   updateMapContent('akad');
   renderStory(c?.story || []);
@@ -162,22 +161,12 @@ function startCountdown() {
 function addToCalendar() {
   const c = state.config;
   if (!c) return;
-
-  const summary = encodeURIComponent(`Pernikahan ${c.couple.groom.short} & ${c.couple.bride.short}`);
-  const location = encodeURIComponent(`${c.event.akad.place}, ${c.event.akad.address}`);
-  
-  // Format deskripsi dengan data Ngunduh Mantu yang baru
-  const desc = encodeURIComponent(
-    `Akad: ${c.event.akad.time} - ${c.event.akad.place}\n` +
-    `Ngunduh Mantu: ${c.event.ngunduh.time} - ${c.event.ngunduh.place}`
-  );
-
-  // Format tanggal ISO ke format Google Calendar (YYYYMMDDTHHmmSSZ)
+  const summary = `Pernikahan ${c.couple.groom.short} & ${c.couple.bride.short}`;
+  const location = `${c.event.akad.place}, ${c.event.akad.address}`;
+  const desc = `Akad: ${c.event.akad.time}\nNgunduh: ${c.event.ngunduh.time}`;
   const dateStr = c.event.dateISO.replace(/[-:]/g, "").split(".")[0] + "Z";
-  
-  const googleUrl = `https://calendar.google.com{summary}&dates=${dateStr}/${dateStr}&details=${desc}&location=${location}`;
-
-  window.open(googleUrl, "_blank");
+  const url = `https://calendar.google.com{encodeURIComponent(summary)}&dates=${dateStr}/${dateStr}&details=${encodeURIComponent(desc)}&location=${encodeURIComponent(location)}`;
+  window.open(url, "_blank");
 }
 
 function renderGallery(list){
@@ -224,19 +213,18 @@ function copyToClipboard(text){
 
 // --- INISIALISASI UTAMA ---
 document.addEventListener("DOMContentLoaded", () => {
-  const gate = document.getElementById("gate");
   const openBtn = document.getElementById("openBtn");
-  const bgm = document.getElementById("bgm");
+  const gate = document.getElementById("gate");
 
   // 1. Logika Buka Gate (Langsung aktif)
   if (openBtn && gate) {
     openBtn.onclick = () => {
       gate.classList.add("gate--hidden");
+      const bgm = document.getElementById("bgm");
       if (bgm) bgm.play().catch(() => console.log("Autoplay blocked"));
     };
   }
 
-  // 2. Jalankan pemuatan data
   initInvitation();
 });
 
@@ -245,26 +233,12 @@ async function initInvitation() {
     state.config = await loadConfig();
     applyTheme();
     setGuestName();
-    startCountdown();
-    revealOnScroll();
-    if (typeof wireLightbox === "function") wireLightbox();
-
-    // 3. AKTIFKAN TOMBOL KALENDER (Penting!)
+    if (typeof startCountdown === "function") startCountdown();
+    if (typeof revealOnScroll === "function") revealOnScroll();
+    
+    // Aktifkan Tombol Kalender
     const calBtn = document.getElementById("addToCalendar");
-    if (calBtn) {
-      calBtn.onclick = () => {
-        const c = state.config;
-        const summary = `Pernikahan ${c.couple.groom.short} & ${c.couple.bride.short}`;
-        const location = `${c.event.akad.place}, ${c.event.akad.address}`;
-        const desc = `Akad: ${c.event.akad.time}\nNgunduh: ${c.event.ngunduh.time}`;
-        
-        // Format tanggal untuk Google Calendar
-        const dateStr = c.event.dateISO.replace(/[-:]/g, "").split(".")[0] + "Z";
-        const url = `https://calendar.google.com{encodeURIComponent(summary)}&dates=${dateStr}/${dateStr}&details=${encodeURIComponent(desc)}&location=${encodeURIComponent(location)}`;
-        
-        window.open(url, "_blank");
-      };
-    }
+    if (calBtn) calBtn.onclick = addToCalendar;
 
   } catch (err) {
     console.error("Gagal memuat config:", err);
