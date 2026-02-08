@@ -10,11 +10,6 @@
     "paramName": "to",
     "defaultName": "Tamu Undangan"
   },
-  "backgrounds": {
-  "cover": "assets/img/bg-cover.jpg",
-  "home": "assets/img/bg-home.jpg",
-  "closing": "assets/img/bg-closing.jpg"
-  },
   "cover": {
     "titleTop": "The Wedding Of",
     "title": "Fahri & Alya",
@@ -138,3 +133,4 @@
   }
 
 }
+
