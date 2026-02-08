@@ -92,6 +92,8 @@
 
     <!-- 2. HOME -->
     <section id="home" class="section hero">
+      <div class="sectionBg" id="homeBg" aria-hidden="true"></div>
+      
       <div class="container">
         <div class="heroCard glass reveal">
           <p class="kicker" id="homeGreet">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
@@ -241,80 +243,69 @@
         </div>
 
         <div class="rsvpGrid">
-          <form id="rsvpForm" class="glass reveal">
-            <h4 class="cardTitle">RSVP</h4>
-
-            <label class="field">
-              <span>Nama</span>
-              <input id="rsvpName" type="text" maxlength="60" required placeholder="Nama kamu" />
-            </label>
-
-            <label class="field">
-              <span>Kehadiran</span>
-              <select id="rsvpAttend" required>
-                <option value="Hadir">Hadir</option>
-                <option value="Tidak Hadir">Tidak Hadir</option>
-                <option value="Masih Ragu">Masih Ragu</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Jumlah Tamu (Pax)</span>
-              <input id="rsvpPax" type="number" min="1" max="5" value="1" required />
-            </label>
-
-            <label class="field">
-              <span>Pesan Singkat</span>
-              <textarea id="rsvpMsg" rows="3" maxlength="200" placeholder="Tulis pesan..."></textarea>
-            </label>
-
-            <button class="btn btn--primary" type="submit">
-              <span class="btn__glow" aria-hidden="true"></span>
-              Kirim RSVP
-            </button>
-
-            <p id="rsvpNote" class="tiny muted" style="margin-top:10px"></p>
-          </form>
-
-          <div class="glass reveal">
-            <h4 class="cardTitle">Statistik</h4>
-            <div class="stats">
-              <div class="stat"><b id="statTotal">0</b><small>Total</small></div>
-              <div class="stat"><b id="statHadir">0</b><small>Hadir</small></div>
-              <div class="stat"><b id="statTidak">0</b><small>Tidak</small></div>
-            </div>
-
-            <div class="divider"></div>
-
-            <h4 class="cardTitle">Ucapan</h4>
-            <form id="wishForm" class="wishForm">
+          
+          <div class="inputPanel">
+            <form id="rsvpForm" class="glass reveal" style="margin-bottom: 20px;">
+              <h4 class="cardTitle">Konfirmasi Kehadiran</h4>
               <label class="field">
                 <span>Nama</span>
-                <input id="wishName" type="text" maxlength="60" required placeholder="Nama kamu" />
+                <input id="rsvpName" type="text" maxlength="60" required placeholder="Nama kamu" />
               </label>
-              <label class="field">
-                <span>Ucapan</span>
-                <input id="wishText" type="text" maxlength="160" required placeholder="Selamat ya..." />
-              </label>
-              <button class="btn btn--ghost" type="submit">Kirim Ucapan</button>
-              <p class="tiny muted">Mode statis: tersimpan di browser (localStorage).</p>
+              <div class="fieldRow" style="display: flex; gap: 10px;">
+                <label class="field" style="flex: 2;">
+                  <span>Kehadiran</span>
+                  <select id="rsvpAttend" required>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                    <option value="Masih Ragu">Masih Ragu</option>
+                  </select>
+                </label>
+                <label class="field" style="flex: 1;">
+                  <span>Tamu (Pax)</span>
+                  <input id="rsvpPax" type="number" min="1" max="5" value="1" required />
+                </label>
+              </div>
+              <button class="btn btn--primary" type="submit">
+                <span class="btn__glow" aria-hidden="true"></span>
+                Kirim RSVP
+              </button>
+              <p id="rsvpNote" class="tiny muted" style="margin-top:10px"></p>
             </form>
 
-            <div id="wishList" class="wishList"></div>
+            <form id="wishForm" class="glass reveal">
+              <h4 class="cardTitle">Kirim Ucapan</h4>
+              <label class="field">
+                <span>Nama</span>
+                <input id="wishName" type="text" maxlength="60" required placeholder="Nama untuk ucapan" />
+              </label>
+              <label class="field">
+                <span>Pesan / Ucapan</span>
+                <textarea id="wishText" rows="3" maxlength="200" required placeholder="Selamat menempuh hidup baru..."></textarea>
+              </label>
+              <button class="btn btn--ghost" type="submit">Kirim Ucapan</button>
+            </form>
           </div>
+
+          <div class="glass reveal displayPanel">
+            <h4 class="cardTitle">Preview Semua Ucapan</h4>
+            <p class="tiny muted">Ucapan akan tampil di sini setelah dikirim.</p>
+            <div class="divider"></div>
+            
+            <div id="wishList" class="wishList wishList--scroll">
+              </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- 9. PENUTUP -->
-    <section id="closing" class="section">
+    <section id="closing" class="section closingSection">
+      <div class="sectionBg" id="closingBg" aria-hidden="true"></div>
       <div class="container">
-        <div class="closing glass reveal">
+        <div class="closingText reveal">
           <h3 class="title" id="closingTitle">Terima Kasih</h3>
-          <p class="muted" id="closingDesc">
-            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
-          </p>
-
+          <p class="muted" id="closingDesc"></p>
           <p class="muted small">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
           <div class="closingNames">
             <span id="closingBride">Alya</span>
@@ -324,7 +315,7 @@
         </div>
       </div>
     </section>
-
+    
   </main>
 
   <!-- 10. FOOTER -->
@@ -337,4 +328,5 @@
 
   <script src="js/script.js"></script>
 </body>
+
 </html>
