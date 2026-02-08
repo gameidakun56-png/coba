@@ -217,37 +217,68 @@ function startCountdown(){
 }
 
 // --- INISIALISASI ---
-document.addEventListener("DOMContentLoaded", () => {
-  const openBtn = document.getElementById("openBtn");
-  const gate = document.getElementById("gate");
-
-  if (openBtn && gate) {
-    openBtn.onclick = () => {
-      gate.classList.add("gate--hidden");
-      const bgm = document.getElementById("bgm");
-      if (bgm) bgm.play().catch(() => console.log("Audio blocked"));
-    };
-  }
-  initInvitation();
-});
-
-async function initInvitation() {
+/* --- Inisialisasi Utama --- */
+document.addEventListener("DOMContentLoaded", async () => {
   try {
     state.config = await loadConfig();
     applyTheme();
     setGuestName();
-    startCountdown();
-    // Reveal On Scroll
-    const els = [...document.querySelectorAll(".reveal")];
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
-    }, { threshold: 0.12 });
-    els.forEach(el=>io.observe(el));
-
-    const calBtn = document.getElementById("addToCalendar");
-    if (calBtn) calBtn.onclick = addToCalendar;
+    initMusicLogic();
+    initSidebarLogic();
   } catch (err) {
-    console.error("Init Gagal:", err);
+    console.error("Gagal inisialisasi:", err);
+  }
+});
+
+function initSidebarLogic() {
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeMenu');
+  const sideNav = document.getElementById('sideNav');
+  const overlay = document.getElementById('navOverlay');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const toggle = () => {
+    sideNav.classList.toggle('active');
+    overlay.style.display = sideNav.classList.contains('active') ? 'block' : 'none';
+  };
+
+  if(menuBtn) menuBtn.onclick = toggle;
+  if(closeBtn) closeBtn.onclick = toggle;
+  if(overlay) overlay.onclick = toggle;
+  navLinks.forEach(link => link.onclick = toggle);
+}
+
+function initMusicLogic() {
+  const bgm = document.getElementById("bgm");
+  const openBtn = document.getElementById("openBtn");
+  const muteBtn = document.getElementById("muteBtn");
+
+  // Load music SRC dari config.json
+  if(bgm && state.config.media?.music?.src) {
+    bgm.src = state.config.media.music.src;
+  }
+
+  if(openBtn) {
+    openBtn.onclick = () => {
+      document.getElementById("gate").classList.add("gate--hidden");
+      if(bgm) {
+        bgm.play().then(() => {
+          document.body.classList.add("playing");
+        }).catch(e => console.log("Autoplay blocked"));
+      }
+    };
+  }
+
+  if(muteBtn) {
+    muteBtn.onclick = () => {
+      if (bgm.paused) {
+        bgm.play();
+        document.body.classList.add("playing");
+      } else {
+        bgm.pause();
+        document.body.classList.remove("playing");
+      }
+    };
   }
 }
 
@@ -287,6 +318,7 @@ function renderGifts(gift){
     wrap.appendChild(card);
   });
 }
+
 
 
 
