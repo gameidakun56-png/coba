@@ -1,5 +1,5 @@
 {
-  "brand": "FahriHabsyi Studio",
+  "brand": "Oridarkmode Studio",
   "siteTitle": "Undangan Pernikahan",
 
   "theme": {
@@ -21,28 +21,28 @@
 
   "cover": {
     "titleTop": "The Wedding Of",
-    "title": "Fahri & Alya",
-    "dateText": "Minggu, 16 Agustus 2026",
+    "title": "Khoiril & Nisa",
+    "dateText": "Selasa, 24 Maret 2026",
     "greeting": "Assalamu’alaikum Warahmatullahi Wabarakatuh"
   },
 
   "home": {
     "headline": "Kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari bahagia kami.",
-    "locationText": "Guntur, Jawa Tengah",
-    "eventISO": "2026-08-16T09:00:00+07:00",
+    "locationText": "Jepara, Jawa Tengah",
+    "eventISO": "2026-03-24T09:00:00+07:00",
     "timezone": "WIB"
   },
 
   "couple": {
     "bride": {
-      "name": "Alya Putri",
-      "parents": "Putri dari Bapak ... & Ibu ...",
+      "name": "Khoirun Nisa, S.Sos.",
+      "parents": "Putri dari Bapak Junaidi & Ibu Siti Zulaikho",
       "photo": "assets/img/couple-bride.jpg",
       "instagram": "https://instagram.com/"
     },
     "groom": {
-      "name": "Fahri Habsyi",
-      "parents": "Putra dari Bapak ... & Ibu ...",
+      "name": "Khoiril Murbaist, S.Sos.",
+      "parents": "Putra dari Bapak Edy Suyanto & Ibu Lusyati",
       "photo": "assets/img/couple-groom.jpg",
       "instagram": "https://instagram.com/"
     }
@@ -51,37 +51,37 @@
   "events": [
     {
       "type": "Akad & Resepsi",
-      "dateText": "Minggu, 16 Agustus 2026",
+      "dateText": "Selasa, 24 Maret 2026",
       "items": [
         {
           "label": "Akad",
-          "timeText": "09.00 - 10.00 WIB",
-          "place": "Masjid ...",
-          "address": "Jl. ... No. ..., Guntur"
+          "timeText": "12.00 - 13.00 WIB",
+          "place": "Masjid Baitul Makmur",
+          "address": "Jl.Dukuh Sekelor Bumiharjo, Keling - Jepara"
         },
         {
           "label": "Resepsi",
-          "timeText": "11.00 - 14.00 WIB",
-          "place": "Gedung Serbaguna Bahagia",
-          "address": "Jl. ... No. ..., Guntur"
+          "timeText": "13.00 - 18.00 WIB",
+          "place": "Rumah Mempelai Wanita",
+          "address": "Jl.Dukuh Sekelor 09/05, Bumiharjo, Keling - Jepara"
         }
       ],
-      "mapEmbed": "https://www.google.com/maps?q=-6.200000,106.816666&output=embed",
-      "mapDirection": "https://maps.google.com/?q=-6.200000,106.816666"
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415.93984634891984!2d110.83489864738965!3d-6.4280604361309095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e713b1464548e09%3A0x94007fd4c7a808b!2sBumiharjo%2C%20Kec.%20Keling%2C%20Kabupaten%20Jepara%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1770573043511!5m2!1sid!2sid",
+      "mapDirection": "https://maps.app.goo.gl/mWVkuW3rtSCsHeSL8"
     },
     {
       "type": "Ngunduh Mantu",
-      "dateText": "Minggu, 23 Agustus 2026",
+      "dateText": "Jum'at, 27 Maret 2026",
       "items": [
         {
           "label": "Ngunduh Mantu",
-          "timeText": "10.00 - 13.00 WIB",
+          "timeText": "09.00 - 13.00 WIB",
           "place": "Kediaman Mempelai Pria",
-          "address": "Jl. ... No. ..., Guntur"
+          "address": "Bulakwaru Barat 01/03, Tarub - Tegal"
         }
       ],
-      "mapEmbed": "https://www.google.com/maps?q=-6.200000,106.816666&output=embed",
-      "mapDirection": "https://maps.google.com/?q=-6.200000,106.816666"
+      "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d329.1636749185386!2d109.19234068239028!3d-6.92302569752679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fc76115309dbb%3A0xc37ecf244fabe60b!2s35GR%2BRWH%2C%20Tangkil%2C%20Bulakwaru%2C%20Kec.%20Tarub%2C%20Kabupaten%20Tegal%2C%20Jawa%20Tengah%2052184!5e0!3m2!1sid!2sid!4v1770573299316!5m2!1sid!2sid",
+      "mapDirection": "https://maps.app.goo.gl/mMfqaDjNkEtTJgn68"
     }
   ],
 
@@ -102,12 +102,12 @@
 
   "story": [
     {
-      "year": "2022",
+      "year": "2021",
       "title": "Pertama Bertemu",
       "desc": "Kami dipertemukan di ..."
     },
     {
-      "year": "2024",
+      "year": "2025",
       "title": "Lamaran",
       "desc": "Dengan restu keluarga ..."
     },
@@ -124,22 +124,22 @@
       {
         "label": "Transfer Bank",
         "note": "BCA",
-        "name": "Fahri Habsyi",
-        "value": "1234567890",
+        "name": "Khoiril Murbaist",
+        "value": "0991122175",
         "logo": "assets/img/banks/bank-placeholder.svg"
       },
       {
         "label": "E-Wallet",
-        "note": "DANA",
-        "name": "Alya Putri",
-        "value": "081234567890",
+        "note": "ShopeePay",
+        "name": "Khoirun Nisa",
+        "value": "088980366617",
         "logo": "assets/img/banks/wallet-placeholder.svg"
       },
       {
         "label": "Alamat Kado",
-        "note": "Pengiriman",
-        "name": "Rumah",
-        "value": "Jl. ... No. ..., Guntur",
+        "note": "Gift",
+        "name": "Alamat Rumah",
+        "value": "Jl.Dukuh Sekelor 09/05, Bumiharjo, Keling, Jepara - 59454",
         "logo": "assets/img/banks/gift-placeholder.svg"
       }
     ]
@@ -166,4 +166,5 @@
     "desc": "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu."
   }
 }
+
 
