@@ -183,19 +183,6 @@ body {
 /* --- Animations --- */
 .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
 .reveal.show { opacity: 1; transform: translateY(0); }
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-  .header { display: none; } /* Header sering mengganggu di mobile */
-  .hero__title { font-size: 50px; }
-  .couple { grid-template-columns: 1fr; gap: 40px; }
-  .ring { transform: rotate(90deg); margin: 10px 0; }
-  .countdown__item { min-width: 70px; padding: 10px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .reveal { transition: none; opacity: 1; transform: none; }
 }
 /* =========================================================
    Mobile Optimization (HP Precision)
@@ -262,4 +249,5 @@ body {
   /* 10. Hilangkan Navigasi Header di HP agar layar bersih */
   .header { display: none; } 
 }
+
 
