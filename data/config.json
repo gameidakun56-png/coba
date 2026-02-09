@@ -21,9 +21,9 @@
 
   "cover": {
     "titleTop": "The Wedding Of",
-    "title": "Khoiril & Nisa",
+    "title": "K & K",
     "dateText": "Selasa, 24 Maret 2026",
-    "greeting": "Assalamu’alaikum Warahmatullahi Wabarakatuh"
+    "greeting": ""
   },
 
   "home": {
@@ -57,7 +57,7 @@
           "label": "Akad",
           "timeText": "12.00 - 13.00 WIB",
           "place": "Masjid Baitul Makmur",
-          "address": "Jl.Dukuh Sekelor Bumiharjo, Keling - Jepara"
+          "address": "Jl.Dukuh Sekelor 09/05, Bumiharjo, Keling - Jepara"
         },
         {
           "label": "Resepsi",
@@ -76,7 +76,7 @@
         {
           "label": "Ngunduh Mantu",
           "timeText": "09.00 - 13.00 WIB",
-          "place": "Kediaman Mempelai Pria",
+          "place": "Rumah Mempelai Pria",
           "address": "Bulakwaru Barat 01/03, Tarub - Tegal"
         }
       ],
@@ -166,5 +166,6 @@
     "desc": "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu."
   }
 }
+
 
 
