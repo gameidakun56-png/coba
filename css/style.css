@@ -178,6 +178,7 @@ a{ color:inherit; text-decoration:none; }
 .gate{
   position:fixed;
   inset:0;
+  background-color: #07060c;
   z-index: 200;
   display:grid;
   place-items:center;
