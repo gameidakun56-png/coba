@@ -194,9 +194,9 @@ a{ color:inherit; text-decoration:none; }
 .gate__bg::after{
   content:"";
   position:absolute; inset:0;
-  background: radial-gradient(900px 500px at 20% 10%, rgba(199,184,255,.28), transparent 60%),
-              radial-gradient(800px 450px at 100% 20%, rgba(124,247,212,.18), transparent 55%),
-              linear-gradient(180deg, rgba(7,6,12,.85), rgba(7,6,12,.6), rgba(7,6,12,.9));
+  background: radial-gradient(900px 500px at 20% 10%, rgba(199,184,255,.15), transparent 60%),
+              radial-gradient(800px 450px at 100% 20%, rgba(124,247,212,.10), transparent 55%),
+              linear-gradient(180deg, rgba(7,6,12,.95), rgba(7,6,12,.95), rgba(7,6,12,.95));
 }
 .gate__card{
   width: min(560px, calc(100% - 36px));
